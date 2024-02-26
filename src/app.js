@@ -4,14 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import { __mainDirname } from "./utils.js";
 import swaggerUiExpress from "swagger-ui-express";
-import swaggerFile from "../swagger-output.json" assert { type: "json" };
-
-// Verificar el tipo del archivo JSON
-if (typeof swaggerFile !== "object" || swaggerFile === null) {
-  throw new Error(
-    "El archivo swagger-output.json no contiene un objeto JSON válido."
-  );
-}
+// import swaggerFile from "../swagger-output.json" assert { type: "json" };
 
 const app = express();
 
@@ -20,11 +13,11 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cors());
 app.use(morgan("dev"));
 
-app.use(
-  "/api/docs",
-  swaggerUiExpress.serve,
-  swaggerUiExpress.setup(swaggerFile)
-);
+// app.use(
+//   "/api/docs",
+//   swaggerUiExpress.serve,
+//   swaggerUiExpress.setup(swaggerFile)
+// );
 app.use("/contacts", contactsRouter);
 
 app.listen(8080, () => console.log("Server Running at 8080"));

@@ -4,7 +4,7 @@ import cors from "cors";
 import morgan from "morgan";
 import { __mainDirname } from "./utils.js";
 import swaggerUiExpress from "swagger-ui-express";
-import swaggerFile from "../swagger-output.json" assert { type: "json" };
+import swaggerFile from "../swagger-output.json";
 
 const app = express();
 
